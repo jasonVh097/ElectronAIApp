@@ -11,7 +11,6 @@ addFileButton.addEventListener('click', () => {
 function addFile(){
     const file = fileInput.files[0];
     if (file) {
-        console.log("there is a file");
         filesToZip.push(file);
         const li = document.createElement('li');
         li.textContent = file.name;
