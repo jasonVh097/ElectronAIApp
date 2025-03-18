@@ -27,3 +27,4 @@ function clearFiles(){
     fileList.innerHTML = '';
 }
 
+export { filesToZip };
