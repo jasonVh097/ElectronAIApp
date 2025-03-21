@@ -1,26 +1,36 @@
-async function apiRequest({ url, method = 'GET', body = null, headers = {} }) {
+export async function getRequest(url) {
     try {
-        const options = {
-            method,
-            headers: {
-                'Content-Type': 'application/json',
-                ...headers
-            },
-        };
-        
-        if (body && (method === 'POST' || method === 'PUT' || method === 'PATCH')) {
-            options.body = JSON.stringify(body);
-        }
-        
-        const response = await fetch(url, options);
-        
+        const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(response.statusText);
         }
-        
         return await response.json();
     } catch (error) {
-        console.error('API Request Error:', error);
+        throw new Error(error.message);
+        return null;
+    }
+}
+
+export async function postRequest(url, body, headers = {}) {
+    try {
+        const options = {
+            method: 'POST',
+            headers: {
+                ...headers,
+            },
+            body: body instanceof FormData ? body : JSON.stringify(body)
+        };
+
+        if (!(body instanceof FormData)) {
+            options.headers['Content-Type'] = 'application/json';
+        }
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.json();
+    } catch (error) {
+        throw new Error(error.message);
         return null;
     }
 }
