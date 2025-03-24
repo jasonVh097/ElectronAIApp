@@ -7,7 +7,30 @@ export async function getRequest(url) {
         return await response.json();
     } catch (error) {
         throw new Error(error.message);
-        return null;
+    }
+}
+
+export async function getHtmlRequest(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.text();
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}   
+
+export async function getImageRequest(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return await response.blob();
+    } catch (error) {
+        throw new Error(error.message);
     }
 }
 
