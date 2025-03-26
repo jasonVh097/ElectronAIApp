@@ -1,9 +1,7 @@
 import { filesToZip } from "./fileService.js";
 const JSZip = require('jszip');
 
-const zipButton = document.querySelector('#convertToZip');
-
-zipButton.addEventListener('click', async () => {
+export async function zipFiles() {
     const zip = new JSZip();
     filesToZip.forEach(file => {
         zip.file(file.name, file);
@@ -15,4 +13,4 @@ zipButton.addEventListener('click', async () => {
     downloadLink.href = URL.createObjectURL(zipBlob);
     downloadLink.download = "files.zip";
     downloadLink.click();
-})
+}

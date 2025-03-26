@@ -1,34 +1,31 @@
-import {postRequest, postRequestBlob } from "./apiService.js";
+import { postRequest, postRequestBlob } from "./apiService.js";
 
-const baseUrl = 'http://127.0.0.1:8000'
+export const baseUrl = 'http://127.0.0.1:8000'
 
-const cleanDataButton = document.querySelector('button#cleanDataButton');
-const files = document.querySelector('input#zipFile');
+export async function cleanData(file) {
+    const data = getFileFromInput('files', file);
+    await cleanDataRequest(data);
 
-const trainModelButton = document.querySelector('button#trainModelButton');
-const csvFile = document.querySelector('input#cleanedData');
+}
 
-cleanDataButton.addEventListener('click', async () => {
+export async function trainModel(file) {
+    const data = getFileFromInput('file', file);
+    await trainModelRequest(data);
+}
+
+function getFileFromInput(dataName, input) {
     const data = new FormData();
-    data.append('files', files.files[0]);
+    data.append(dataName, input.files[0]);
+    return data;
+}
 
-    await extractCleanData(data);
-});
-
-trainModelButton.addEventListener('click', async () => {
-    const data = new FormData();
-    data.append('file', csvFile.files[0]);
-
-    await trainModel(data);
-});
-
-async function extractCleanData(data) {
+async function cleanDataRequest(data) {
     const url = `${baseUrl}/extract_clean`;
     const response = await postRequestBlob(url, data);
     return response;
 }
 
-async function trainModel(data) {
+async function trainModelRequest(data) {
     const url = `${baseUrl}/train_model`;
     const response = await postRequest(url, data);
     return response;
