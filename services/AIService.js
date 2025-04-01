@@ -3,14 +3,22 @@ import { postRequest, postRequestBlob } from "./apiService.js";
 export const baseUrl = 'http://127.0.0.1:8000'
 
 export async function cleanData(file) {
-    const data = getFileFromInput('files', file);
-    await cleanDataRequest(data);
-
+    try {
+        const data = getFileFromInput('files', file);
+        await cleanDataRequest(data);
+    } catch (error) {
+        alert(`Error: ${error.message}\nCheck if the API server is running and that you gave the correct file type.`);
+    }
 }
 
 export async function trainModel(file) {
-    const data = getFileFromInput('file', file);
-    await trainModelRequest(data);
+    try {
+        const data = getFileFromInput('file', file);
+        await trainModelRequest(data);
+        alert('Model trained successfully!');
+    } catch (error) {
+        alert(`Error: ${error.message}\nCheck if the API server is running and that you gave the correct file type.`);
+    }
 }
 
 function getFileFromInput(dataName, input) {
