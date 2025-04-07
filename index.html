@@ -10,28 +10,39 @@
 </head>
 
 <body>
-    <h1>PDF to AI data</h1>
-    <section>
-        <h2>If you want to insert multiple PDF files and it isn't in a zip file yet, put the files here:</h2>
-        <input type="file" id="pdfFile">
-        <button id="addFile">Add file to list</button>
-        <button id="removePdfFilesButton">Remove all files from list</button>
-        <button id="convertToZip">Convert files to zip</button>
-        <h3>Current files:</h3>
-        <ul id="pdfFiles">
+    <div id="TrainModelField">
+        <h1>PDF to AI data</h1>
+        <section>
+            <h2>If you want to insert multiple PDF files and it isn't in a zip file yet, put the files here:</h2>
+            <input type="file" id="pdfFile">
+            <button id="addFile">Add file to list</button>
+            <button id="removePdfFilesButton">Remove all files from list</button>
+            <button id="convertToZip">Convert files to zip</button>
+            <h3>Current files:</h3>
+            <ul id="pdfFiles">
 
-        </ul>
-    </section>
-    <section>
-        <h2>Put the zip file or the single pdf file to clean the data:</h2>
-        <input type="file" id="zipFile">
-        <button id="cleanDataButton">Clean data</button>
-    </section>
-    <section>
-        <h2>Put the csv file you got from the cleaned data to train the AI model:</h2>
-        <input type="file" id="cleanedData">
-        <button id="trainModelButton">Train the AI model</button>
-    </section>
+            </ul>
+        </section>
+        <section>
+            <h2>Put the zip file or the single pdf file to clean the data:</h2>
+            <input type="file" id="zipFile">
+            <button id="cleanDataButton">Clean data</button>
+        </section>
+        <section>
+            <h2>Put the csv file you got from the cleaned data to train the AI model:</h2>
+            <input type="file" id="cleanedData">
+            <button id="trainModelButton">Train the AI model</button>
+        </section>
+    </div>
+    <div id="showResults">
+        <button data-target="visualize_topics">Topics</button>
+        <button data-target="visualize_barchart">Barchart</button>
+        <button data-target="visualize_hierarchy">Hierarchy</button>
+        <button data-target="visualize_documents">Documents</button>
+        <button data-target="visualize_distribution">Distribution</button>
+        <button data-target="visualize_article_counts">Article counts</button>
+        <button data-target="visualize_article_proportions">Article proportions</button>
+    </div>
 </body>
 
 </html>

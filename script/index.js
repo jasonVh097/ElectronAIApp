@@ -1,4 +1,4 @@
-import { cleanData, trainModel } from '../services/AIService.js';
+import { cleanData, trainModel, baseUrl } from '../services/AIService.js';
 import { filesToZip, addFile, clearFiles } from '../services/fileService.js';
 import { zipFiles } from '../services/zipService.js';
 
@@ -15,6 +15,8 @@ const files = document.querySelector('input#zipFile');
 
 const trainModelButton = document.querySelector('button#trainModelButton');
 const csvFile = document.querySelector('input#cleanedData');
+
+const visualizeButtons = document.querySelectorAll('div#showResults button');
 //#endregion
 
 //#region event listeners
@@ -35,5 +37,11 @@ cleanDataButton.addEventListener('click', async () => {
 
 trainModelButton.addEventListener('click', async () => {
     trainModel(csvFile);
+});
+
+visualizeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        window.open(`${baseUrl}/${button.dataset.target}`, '_blank');
+    });
 });
 //#endregion
