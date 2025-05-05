@@ -1,3 +1,102 @@
-.hidden {
-    display: none;
+:root {
+    --bodyBackground: #f4f6f8;
+    --secondaryBackground: #ffffff;
+    --sectionBackground: #fafafa;
+    --mainTextColor: #333;
+    --h1Color: #1a73e8;
+    --borderColor: #e0e0e0;
+    --shadowColor: rgba(0, 0, 0, 0.1);
+    --trainButtonColor: #1a73e8;
+    --trainButtonHoverColor: #1558b0;
+    --deleteButtonColor: red;
+    --deleteButtonHoverColor: crimson;
+    --buttonTextColor: white;
+    --showResultsButtonColor: #34a853;
+    --showResultsButtonHoverColor: #2c8a45;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bodyBackground);
+    color: var(--mainTextColor);
+}
+
+#TrainModelField,
+#showResults {
+    background-color: var(--secondaryBackground);
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 2rem;
+    border-radius: 3rem;
+    box-shadow: 0 0.5rem 0.8rem var(--shadowColor);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--h1Color);
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    color: var(--mainTextColor);
+}
+
+h3 {
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 0.15rem solid var(--borderColor);
+    border-radius: 1rem;
+    background: var(--sectionBackground);
+}
+
+input[type="file"] {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--trainButtonColor);
+    color: var(--buttonTextColor);
+    border: none;
+    padding: 0.5rem 0.8rem;
+    margin: 0.5rem 0.5rem 1rem 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 1rem;
+}
+
+button#removePdfFilesButton {
+    background-color: var(--deleteButtonColor);
+}
+
+button:hover {
+    background-color: var(--trainButtonHoverColor);
+}
+
+button#removePdfFilesButton:hover {
+    background-color: var(--deleteButtonHoverColor);
+}
+
+ul#pdfFiles {
+    list-style-type: disc;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+#showResults button {
+    background-color: var(--showResultsButtonColor);
+}
+
+#showResults button:hover {
+    background-color: var(--showResultsButtonHoverColor);
 }
