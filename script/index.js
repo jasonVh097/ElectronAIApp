@@ -32,11 +32,11 @@ clearFilesButton.addEventListener('click', () => {
 })
 
 cleanDataButton.addEventListener('click', async () => {
-    cleanData(files);
+    handleFunctionWithLoader(() => cleanData(files), '#cleanDataButton');
 });
 
 trainModelButton.addEventListener('click', async () => {
-    trainModel(csvFile);
+    handleFunctionWithLoader(() => trainModel(csvFile), '#trainModelButton');
 });
 
 visualizeButtons.forEach((button) => {
@@ -44,4 +44,14 @@ visualizeButtons.forEach((button) => {
         window.open(`${baseUrl}/${button.dataset.target}`, '_blank');
     });
 });
+
+async function handleFunctionWithLoader(func, button) {
+    const loader = document.querySelector(`${button} + .loader-container`);
+    loader.classList.remove('hidden');
+    try {
+        await func();
+    } finally {
+        loader.classList.add('hidden');
+    }
+}
 //#endregion

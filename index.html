@@ -27,11 +27,21 @@
             <h2>Put the zip file or the single pdf file to clean the data:</h2>
             <input type="file" id="zipFile">
             <button id="cleanDataButton">Clean data</button>
+            <div class="loader-container hidden">
+                <div class="loader">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
         </section>
         <section>
             <h2>Put the csv file you got from the cleaned data to train the AI model:</h2>
             <input type="file" id="cleanedData">
             <button id="trainModelButton">Train the AI model</button>
+            <div class="loader-container hidden">
+                <div class="loader">
+                    <div class="inner-circle"></div>
+                </div>
+            </div>
         </section>
     </div>
     <div id="showResults">

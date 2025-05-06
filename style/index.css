@@ -100,3 +100,39 @@ ul#pdfFiles {
 #showResults button:hover {
     background-color: var(--showResultsButtonHoverColor);
 }
+
+.loader-container {
+    display: inline-block;
+}
+
+.loader {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(0deg, var(--sectionBackground) 50%, var(--trainButtonHoverColor) 100%);
+    animation: spin 1s linear infinite;
+}
+
+.inner-circle {
+    width: 90%;
+    height: 90%;
+    background-color: var(--sectionBackground);
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
