@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "test"
+    "test": "test",
+    "make": "electron-builder"
   },
   "author": "Jason",
   "license": "ISC",
