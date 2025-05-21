@@ -6,12 +6,13 @@
   "scripts": {
     "start": "electron .",
     "test": "test",
-    "make": "electron-builder"
+    "make": "npx electron-builder"
   },
   "author": "Jason",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^35.0.2"
+    "electron": "^35.0.2",
+    "electron-builder": "^26.0.12"
   },
   "dependencies": {
     "jszip": "^3.10.1"
